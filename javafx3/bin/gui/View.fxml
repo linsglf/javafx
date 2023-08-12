@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="500.0" minWidth="600.0" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
+   <children>
+      <Label layoutX="186.0" layoutY="70.0" text="Calculate Sum">
+         <font>
+            <Font name="Calibri Light" size="40.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldFirstNumber" layoutX="225.0" layoutY="161.0" promptText="First Number" AnchorPane.bottomAnchor="315.0" AnchorPane.leftAnchor="225.00000000000003" AnchorPane.rightAnchor="225.4" AnchorPane.topAnchor="159.4" />
+      <TextField fx:id="textFieldSecondNumber" layoutX="225.0" layoutY="314.0" promptText="Second Number" AnchorPane.leftAnchor="225.00000000000003" AnchorPane.rightAnchor="225.4" AnchorPane.topAnchor="315.0" />
+      <Button fx:id="btSum" layoutX="260.0" layoutY="220.0" mnemonicParsing="false" onAction="#onBtSumAction" prefHeight="60.0" prefWidth="80.0" text="Sum" AnchorPane.bottomAnchor="220.0" AnchorPane.topAnchor="220.0" />
+      <Group layoutX="263.0" layoutY="404.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="263.0">
+         <children>
+            <Label text="Result: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelResult" layoutX="46.0" prefHeight="20.0" prefWidth="86.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
