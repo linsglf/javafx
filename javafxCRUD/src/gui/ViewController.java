@@ -20,15 +20,15 @@ public class ViewController {
 	// Event Listener on Button[#btnCadastrar].onAction
 	@FXML
 	public void btnCadastrarActionPerformed(ActionEvent event) {
-		String nome, department;
+		String nome, departamento;
 		
 		nome = txtNome.getText();
 		
-		department = txtDepartamento.getText();
+		departamento = txtDepartamento.getText();
 		
 		FuncionarioDTO objFuncionarioDTO = new FuncionarioDTO(); 
 		objFuncionarioDTO.setNomeFuncionario(nome);
-		objFuncionarioDTO.setDepartamentoFuncionario(department);
+		objFuncionarioDTO.setDepartamentoFuncionario(departamento);
 		
 		FuncionarioDAO objFuncionarioDAO = new FuncionarioDAO();
 		objFuncionarioDAO.cadastrarFuncionario(objFuncionarioDTO);
