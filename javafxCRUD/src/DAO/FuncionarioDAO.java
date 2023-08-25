@@ -18,19 +18,19 @@ public class FuncionarioDAO {
 	ArrayList<FuncionarioDTO> lista = new ArrayList<>();
 	public void cadastrarFuncionario(FuncionarioDTO objFuncionarioDTO) {
 		String sql = "INSERT INTO funcionario (nome_funcionario, departamento_funcionario) VALUES (?,?);";
-		
+
 		conn = new ConexaoDAO().conectaBD();
-		
+
 		try {
-			
+
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, objFuncionarioDTO.getNomeFuncionario());
 			pstm.setString(2, objFuncionarioDTO.getDepartamentoFuncionario());
-		
+
 			pstm.execute();
 			pstm.close();
 		} catch (Exception e) {
-			
+
 			Alerts.showAlert("Error", null,"FuncionarioDAO Cadastrar" + e.getMessage(), AlertType.ERROR);
 		}
 	}
@@ -57,5 +57,25 @@ public class FuncionarioDAO {
 		}
 
 		return lista;
+	}
+
+	public void updateFuncionario(FuncionarioDTO objFuncionarioDTO) {
+		String sql = "UPDATE funcionario SET nome_funcionario = ?, departamento_funcionario = ? WHERE id_funcionario = ?;";
+
+		conn = new ConexaoDAO().conectaBD();
+
+		try {
+
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, objFuncionarioDTO.getNomeFuncionario());
+			pstm.setString(2, objFuncionarioDTO.getDepartamentoFuncionario());
+			pstm.setInt(3, objFuncionarioDTO.getIdFuncionario());
+
+			pstm.execute();
+			pstm.close();
+		} catch (Exception e) {
+
+			Alerts.showAlert("Error", null,"FuncionarioDAO Update" + e.getMessage(), AlertType.ERROR);
+		}
 	}
 }
