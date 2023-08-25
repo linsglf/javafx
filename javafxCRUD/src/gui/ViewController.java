@@ -65,6 +65,7 @@ public class ViewController {
 
 			tabelaFuncionario.setItems(FXCollections.observableArrayList(listaFuncionarios));
 		} catch (Exception e) {
+
 			Alerts.showAlert("Error", null,"VIEW TABLE" + e.getMessage(), Alert.AlertType.ERROR);
 		}
 	}

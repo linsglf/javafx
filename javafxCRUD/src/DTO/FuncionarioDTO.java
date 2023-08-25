@@ -2,7 +2,8 @@ package DTO;
 
 public class FuncionarioDTO {
 	
-	private String nomeFuncionario, departamentoFuncionario;
+	private String nomeFuncionario,
+			departamentoFuncionario;
 	private int idFuncionario;
 	public String getNomeFuncionario() {
 		return nomeFuncionario;

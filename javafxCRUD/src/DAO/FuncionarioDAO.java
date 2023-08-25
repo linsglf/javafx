@@ -29,7 +29,6 @@ public class FuncionarioDAO {
 		
 			pstm.execute();
 			pstm.close();
-			
 		} catch (Exception e) {
 			
 			Alerts.showAlert("Error", null,"FuncionarioDAO Cadastrar" + e.getMessage(), AlertType.ERROR);
