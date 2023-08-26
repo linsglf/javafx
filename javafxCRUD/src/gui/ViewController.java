@@ -28,13 +28,16 @@ public class ViewController {
 	@FXML
 	private Button btnUpdate;
 	@FXML
+	private Button btnDelete;
+	@FXML
+	private TableView<FuncionarioDTO> tabelaFuncionario;
+	@FXML
 	private TableColumn<FuncionarioDTO, String> departamentoColumn;
 	@FXML
 	private TableColumn<FuncionarioDTO, Integer> idColumn;
 	@FXML
 	private TableColumn<FuncionarioDTO, String> nomeColumn;
-	@FXML
-	private TableView<FuncionarioDTO> tabelaFuncionario;
+
 
 	@FXML
 	public void initialize() {
@@ -62,6 +65,11 @@ public class ViewController {
 		updateFuncionario();
 		listarValores();
 		limparCampos();
+	}
+	@FXML
+	void btnDeleteAction(ActionEvent event) {
+		deletFuncionario();
+		listarValores();
 	}
 
 	private void cadastrarFuncionario() {
@@ -127,6 +135,19 @@ public class ViewController {
 			objFuncionarioDAO.updateFuncionario(objFuncionarioDTO);
 		}else {
 			Alerts.showAlert("Informações inválidas!", null,"Preencha os campos corretamente!", Alert.AlertType.WARNING);
+		}
+	}
+
+	private void deletFuncionario() {
+		FuncionarioDTO selectedFuncionario = tabelaFuncionario.getSelectionModel().getSelectedItem();
+		FuncionarioDTO objFuncionarioDTO = new FuncionarioDTO();
+		FuncionarioDAO objFuncionarioDAO = new FuncionarioDAO();
+
+		if (selectedFuncionario != null) {
+			int idFuncionario = selectedFuncionario.getIdFuncionario();
+			objFuncionarioDTO.setIdFuncionario(idFuncionario);
+
+			objFuncionarioDAO.deletFuncionario(objFuncionarioDTO);
 		}
 	}
 }

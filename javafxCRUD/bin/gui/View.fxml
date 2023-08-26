@@ -27,7 +27,7 @@
         <buttons>
             <Button fx:id="btncCarregarCampos" minWidth="45.0" mnemonicParsing="false" onAction="#btnCarregarCampos" prefHeight="26.0" prefWidth="102.0" text="Edit" />
             <Button fx:id="btnUpdate" minWidth="30.0" mnemonicParsing="false" onAction="#btnUpdateTableValue" prefHeight="26.0" text="Update" />
-          <Button mnemonicParsing="false" prefHeight="26.0" text="Delete" />
+          <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="26.0" text="Delete" />
         </buttons>
          <padding>
             <Insets right="20.0" />

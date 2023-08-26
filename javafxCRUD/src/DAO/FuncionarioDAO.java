@@ -3,6 +3,7 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -22,7 +23,6 @@ public class FuncionarioDAO {
 		conn = new ConexaoDAO().conectaBD();
 
 		try {
-
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, objFuncionarioDTO.getNomeFuncionario());
 			pstm.setString(2, objFuncionarioDTO.getDepartamentoFuncionario());
@@ -65,7 +65,6 @@ public class FuncionarioDAO {
 		conn = new ConexaoDAO().conectaBD();
 
 		try {
-
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, objFuncionarioDTO.getNomeFuncionario());
 			pstm.setString(2, objFuncionarioDTO.getDepartamentoFuncionario());
@@ -74,7 +73,22 @@ public class FuncionarioDAO {
 			pstm.execute();
 			pstm.close();
 		} catch (Exception e) {
+			Alerts.showAlert("Error", null,"FuncionarioDAO Update" + e.getMessage(), AlertType.ERROR);
+		}
+	}
 
+	public void deletFuncionario(FuncionarioDTO objFuncionarioDTO) {
+		String sql = "DELETE FROM funcionario WHERE id_funcionario = ?;";
+
+		conn = new ConexaoDAO().conectaBD();
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, objFuncionarioDTO.getIdFuncionario());
+
+			pstm.execute();
+			pstm.close();
+		} catch (SQLException e) {
 			Alerts.showAlert("Error", null,"FuncionarioDAO Update" + e.getMessage(), AlertType.ERROR);
 		}
 	}
