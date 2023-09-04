@@ -35,7 +35,7 @@ public class FuncionarioDAO {
 		}
 	}
 
-	public ArrayList<FuncionarioDTO> pesquisarFuncionario() {
+	public ArrayList<FuncionarioDTO> PesquisarFuncionario() {
 		String sql = "SELECT * FROM funcionario;";
 
 		conn = new ConexaoDAO().conectaBD();
