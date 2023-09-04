@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import DTO.FuncionarioDTO;
 import gui.util.Alerts;
@@ -35,7 +34,7 @@ public class FuncionarioDAO {
 		}
 	}
 
-	public ArrayList<FuncionarioDTO> PesquisarFuncionario() {
+	public ArrayList<FuncionarioDTO> pesquisarFuncionario() {
 		String sql = "SELECT * FROM funcionario;";
 
 		conn = new ConexaoDAO().conectaBD();

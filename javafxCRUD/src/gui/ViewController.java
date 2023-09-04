@@ -11,7 +11,6 @@ import DTO.FuncionarioDTO;
 import javafx.event.ActionEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class ViewController {
