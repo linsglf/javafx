@@ -35,7 +35,7 @@ public class FuncionarioDAO {
 		}
 	}
 
-	public ArrayList<FuncionarioDTO> PesquisarFuncionario() {
+	public ArrayList<FuncionarioDTO> pesquisarFuncionario() {
 		String sql = "SELECT * FROM funcionario;";
 
 		conn = new ConexaoDAO().conectaBD();
@@ -55,7 +55,6 @@ public class FuncionarioDAO {
 		} catch (Exception e) {
 			Alerts.showAlert("Error", null,"FuncionarioDAO Pesquisar:" + e.getMessage(), AlertType.ERROR);
 		}
-
 		return lista;
 	}
 

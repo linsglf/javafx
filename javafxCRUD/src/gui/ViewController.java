@@ -68,7 +68,7 @@ public class ViewController {
 	}
 	@FXML
 	void btnDeleteAction(ActionEvent event) {
-		deletFuncionario();
+		deleteFuncionario();
 		listarValores();
 	}
 
@@ -90,7 +90,7 @@ public class ViewController {
 	private void listarValores() {
 		try	{
 			FuncionarioDAO objFuncionarioDAO = new FuncionarioDAO();
-			List<FuncionarioDTO> listaFuncionarios = objFuncionarioDAO.PesquisarFuncionario();
+			List<FuncionarioDTO> listaFuncionarios = objFuncionarioDAO.pesquisarFuncionario();
 
 			idColumn.setCellValueFactory(new PropertyValueFactory<>("idFuncionario"));
 			nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nomeFuncionario"));
@@ -98,7 +98,6 @@ public class ViewController {
 
 			tabelaFuncionario.setItems(FXCollections.observableArrayList(listaFuncionarios));
 		} catch (Exception e) {
-
 			Alerts.showAlert("Error", null,"VIEW TABLE" + e.getMessage(), Alert.AlertType.ERROR);
 		}
 	}
@@ -138,7 +137,7 @@ public class ViewController {
 		}
 	}
 
-	private void deletFuncionario() {
+	private void deleteFuncionario() {
 		FuncionarioDTO selectedFuncionario = tabelaFuncionario.getSelectionModel().getSelectedItem();
 		FuncionarioDTO objFuncionarioDTO = new FuncionarioDTO();
 		FuncionarioDAO objFuncionarioDAO = new FuncionarioDAO();
@@ -148,6 +147,9 @@ public class ViewController {
 			objFuncionarioDTO.setIdFuncionario(idFuncionario);
 
 			objFuncionarioDAO.deletFuncionario(objFuncionarioDTO);
+		}else {
+			Alerts.showAlert("Delete ERROR", null,"Unable to delete!", Alert.AlertType.ERROR);
 		}
 	}
 }
+
